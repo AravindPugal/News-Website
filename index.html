@@ -4,114 +4,118 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>News Website</title>
 </head>
 <body>
-    <h1>This is the great Website you can customize news as per your wish</h1>
-    <form action="/" method="POST">
-        <label for="content-type">Select Content Type:</label>
-        <select name="contentType" id="content-type" required>
-            <option value="everything">Everything</option>
-            <option value="top-headlines">Top Headlines</option>
-        </select>
-
-        <label for="content-key">Search By Word</label>
-        <input type="text" name="contentKey" id="content-key" required>
-
-        <label for="category">Select Category:</label>
-        <select name="category" id="category" disabled>
-            <option>Choose a Category</option>
-            <option value="business">business</option>
-            <option value="entertainment">entertainment</option>
-            <option value="general">general</option>
-            <option value="health">health</option>
-            <option value="science">science</option>
-            <option value="sports">sports</option>
-            <option value="technology">technology</option>
-        </select>
-
-        <label for="country">Country:</label>
-        <select name="country" id="country" disabled>
-            <option>Choose a Country</option>
-            <option value="in">India</option>
-            <option value="ae">United Arab Emirates</option>
-            <option value="ar">Argentina</option>
-            <option value="at">Austria</option>
-            <option value="au">Australia</option>
-            <option value="be">Belgium</option>
-            <option value="bg">Bulgaria</option>
-            <option value="br">Brazil</option>
-            <option value="ca">Canada</option>
-            <option value="ch">Switzerland</option>
-            <option value="cn">China</option>
-            <option value="co">Colombia</option>
-            <option value="cu">Cuba</option>
-            <option value="cz">Czech Republic</option>
-            <option value="de">Germany</option>
-            <option value="fr">France</option>
-            <option value="gb">United Kingdom</option>
-            <option value="gr">Greece</option>
-            <option value="hk">Hong Kong</option>
-            <option value="hu">Hungary</option>
-            <option value="id">Indonesia</option>
-            <option value="ie">Ireland</option>
-            <option value="il">Israel</option>
-            <option value="it">Italy</option>
-            <option value="jp">Japan</option>
-            <option value="kr">Korea Republic</option>
-            <option value="lt">Lithuania</option>
-            <option value="lv">Latvia</option>
-            <option value="ma">Morocco</option> 
-            <option value="mx">Mexico</option>
-            <option value="my">Malaysia</option>
-            <option value="ng">Nigeria</option>
-            <option value="nl">Netherlands</option>
-            <option value="no">Norway</option>
-            <option value="nz">New Zealand</option>
-            <option value="ph">Philippines</option>
-            <option value="pl">Poland</option>
-            <option value="pt">Portugal</option>
-            <option value="ro">Romania</option>
-            <option value="ru">Russian Federation</option>
-            <option value="sa">Saudi Arabia</option>
-            <option value="se">Sweden</option>
-            <option value="sg">Singapore</option>
-            <option value="si">Slovenia</option>
-            <option value="sk">Slovakia (Slovak Republic)</option>
-            <option value="th">Thailand</option>
-            <option value="tr">Turkey</option>
-            <option value="tw">Taiwan</option>
-            <option value="ua">Ukraine</option>
-            <option value="us">United States</option>
-            <option value="za">South Africa</option>
-        </select>
-
-        <label for="start-data">Start Date</label>
-        <input type="date" name="startDate" id="start-data">
-
-        <label for="end-data">End Date</label>
-        <input type="date" name="endDate" id="end-data" disabled>
-
-        <label for="language">Language</label>
-        <select name="language" id="language">
-            <option value="en">English</option>
-            <option value="ar">Arabic</option>
-            <option value="de">German</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="he">Hebrew</option>
-            <option value="it">Italian</option>
-            <option value="nl">Dutch</option>
-            <option value="no">Norwegian</option>
-            <option value="pt">Portuguese(Portugal)</option>
-            <option value="ru">Russian</option>
-            <option value="se">Swedish</option>
-            <option value="zh">Chinese</option>
-        </select>
+    <div id="flex-box">
+            <form id="form-container" action="/" method="POST">
+                <span class="form-element">
+                    <label for="content-type">Select Content Type:</label>
+                    <select name="contentType" id="content-type" required>
+                        <option value="everything">Everything</option>
+                        <option value="top-headlines">Top Headlines</option>
+                    </select>
+                </span>
+                <span class="form-element">
+                    <label for="content-key">Search By Word</label>
+                    <input type="text" name="contentKey" id="content-key" required>
+                </span>
+                <span class="form-element"><label for="category">Select Category:</label>
+                <select name="category" id="category" disabled>
+                    <option value="">Choose a Category</option>
+                    <option value="business">business</option>
+                    <option value="entertainment">entertainment</option>
+                    <option value="general">general</option>
+                    <option value="health">health</option>
+                    <option value="science">science</option>
+                    <option value="sports">sports</option>
+                    <option value="technology">technology</option>
+                </select></span>
+                <span class="form-element"><label for="country">Country:</label>
+                <select name="country" id="country" disabled>
+                    <option value="">Choose a Country</option>
+                    <option value="in">India</option>
+                    <option value="ae">United Arab Emirates</option>
+                    <option value="ar">Argentina</option>
+                    <option value="at">Austria</option>
+                    <option value="au">Australia</option>
+                    <option value="be">Belgium</option>
+                    <option value="bg">Bulgaria</option>
+                    <option value="br">Brazil</option>
+                    <option value="ca">Canada</option>
+                    <option value="ch">Switzerland</option>
+                    <option value="cn">China</option>
+                    <option value="co">Colombia</option>
+                    <option value="cu">Cuba</option>
+                    <option value="cz">Czech Republic</option>
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                    <option value="gb">United Kingdom</option>
+                    <option value="gr">Greece</option>
+                    <option value="hk">Hong Kong</option>
+                    <option value="hu">Hungary</option>
+                    <option value="id">Indonesia</option>
+                    <option value="ie">Ireland</option>
+                    <option value="il">Israel</option>
+                    <option value="it">Italy</option>
+                    <option value="jp">Japan</option>
+                    <option value="kr">Korea Republic</option>
+                    <option value="lt">Lithuania</option>
+                    <option value="lv">Latvia</option>
+                    <option value="ma">Morocco</option>
+                    <option value="mx">Mexico</option>
+                    <option value="my">Malaysia</option>
+                    <option value="ng">Nigeria</option>
+                    <option value="nl">Netherlands</option>
+                    <option value="no">Norway</option>
+                    <option value="nz">New Zealand</option>
+                    <option value="ph">Philippines</option>
+                    <option value="pl">Poland</option>
+                    <option value="pt">Portugal</option>
+                    <option value="ro">Romania</option>
+                    <option value="ru">Russian Federation</option>
+                    <option value="sa">Saudi Arabia</option>
+                    <option value="se">Sweden</option>
+                    <option value="sg">Singapore</option>
+                    <option value="si">Slovenia</option>
+                    <option value="sk">Slovakia (Slovak Republic)</option>
+                    <option value="th">Thailand</option>
+                    <option value="tr">Turkey</option>
+                    <option value="tw">Taiwan</option>
+                    <option value="ua">Ukraine</option>
+                    <option value="us">United States</option>
+                    <option value="za">South Africa</option>
+                </select></span>
+                <span class="form-element"><label for="start-data">Start Date</label>
+                <input type="date" name="startDate" id="start-data"></span>
+                <span class="form-element"><label for="end-data">End Date</label>
+                <input type="date" name="endDate" id="end-data" disabled></span>
+                <span class="form-element"><label for="language">Language</label>
+                <select name="language" id="language">
+                    <option value="en">English</option>
+                    <option value="ar">Arabic</option>
+                    <option value="de">German</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="he">Hebrew</option>
+                    <option value="it">Italian</option>
+                    <option value="nl">Dutch</option>
+                    <option value="no">Norwegian</option>
+                    <option value="pt">Portuguese(Portugal)</option>
+                    <option value="ru">Russian</option>
+                    <option value="se">Swedish</option>
+                    <option value="zh">Chinese</option>
+                </select></span>            
+                <button type="submit">Submit</button>
+            </form>
+        <div id="news-container">
+            <h1>nothing currently</h1>
+        </div>
+    </div>
     
-        <button type="submit">Submit</button>
-    </form>
-    <script src="/index.js"></script>
+    <!-- linking script file with html -->
+    <script src="index.js"></script>
 </body>
 </html>
 
