@@ -39,7 +39,7 @@ app.post('/', (req, res) => {
         category = "category=" + req.body.category + "&"
     }
 
-    const pathStr = "https://newsapi.org/v2/" + req.body.contentType + "" + "" + "?" + q + from + to + category + country + language;
+    const pathStr = "https://newsapi.org/v2/" + req.body.contentType + "?" + q + from + to + category + country + language;
     console.log(pathStr);
     const options = {
         headers: {
