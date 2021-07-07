@@ -88,8 +88,23 @@ form.addEventListener('submit', (e) => {
     if (category) {
         category = "category=" + categoryGetter.value + "&"
     }
+    const formData = { contentType, q, from, to, country, category, language }
+    console.log(JSON.stringify(formData));
 
-    // make request to my own back end here
+
+    // posting input data and get array of article as a response
+    const fetchData = async () => {
+        const responseData = await fetch('http://localhost:3000/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        responseData = await responseData.json();
+        console.log(responseData.articles);
+    }
+    fetchData()
 
 })
 
