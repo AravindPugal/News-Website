@@ -16,8 +16,10 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+    console.log(req.body);
     let articles = []
-    const reqStr = '/v2/' + req.body.contentType + '?' + req.body.q + req.body.from + req.body.to + req.body.country + req.body.category + req.body.language;
+    const reqStr = '/v2/' + req.body.contentType + '?' + req.body.q + req.body.from + req.body.to + req.body.country + req.body.category + req.body.language + req.body.page;
+    console.log(reqStr);
     const options = {
         hostname: 'newsapi.org',
         path: reqStr,

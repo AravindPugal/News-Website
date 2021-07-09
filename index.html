@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=BioRhyme:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>News Website</title>
 </head>
 <body>
     <div id="flex-box">
-            <form id="form-container" action="/" method="POST">
+            <form id="form-container" >
                 <span class="form-element">
-                    <label for="content-type">Select Content Type:</label>
+                    <label for="content-type">Select Content Type</label>
                     <select name="contentType" id="content-type" required>
                         <option value="everything">Everything</option>
                         <option value="top-headlines">Top Headlines</option>
                     </select>
                 </span>
                 <span class="form-element">
-                    <label for="content-key">Search By Word</label>
-                    <input type="text" name="contentKey" id="content-key" required>
+                    <label for="content-key">Key Word</label>
+                    <input type="text" name="contentKey" id="content-key" placeholder=" Required..." required autocomplete="off">
                 </span>
-                <span class="form-element"><label for="category">Select Category:</label>
+                <span class="form-element"><label for="category">Select Category</label>
                 <select name="category" id="category" disabled>
                     <option value="">Choose a Category</option>
                     <option value="business">business</option>
@@ -32,7 +36,7 @@
                     <option value="sports">sports</option>
                     <option value="technology">technology</option>
                 </select></span>
-                <span class="form-element"><label for="country">Country:</label>
+                <span class="form-element"><label for="country">Country</label>
                 <select name="country" id="country" disabled>
                     <option value="">Choose a Country</option>
                     <option value="in">India</option>
@@ -82,7 +86,7 @@
                     <option value="sk">Slovakia (Slovak Republic)</option>
                     <option value="th">Thailand</option>
                     <option value="tr">Turkey</option>
-                    <option value="tw">Taiwan</option>
+                    <option value="tw">Taiwan</option>  
                     <option value="ua">Ukraine</option>
                     <option value="us">United States</option>
                     <option value="za">South Africa</option>
@@ -106,15 +110,54 @@
                     <option value="ru">Russian</option>
                     <option value="se">Swedish</option>
                     <option value="zh">Chinese</option>
-                </select></span>            
-                <button type="submit">Submit</button>
+                </select></span>   
+                <button type="submit">FILTER</button>
             </form>
         <div id="news-container">
-            <h1>nothing currently</h1>
+            <article class="news">
+                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
+                <h1>top news of the day</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed neque
+                    commodo consectetur. Quisque …
+                </p>
+                <p>Read more....</p>
+            </article>
+            <article class="news">
+                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
+                <h1>top news of the day</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed
+                    neque
+                    commodo consectetur. Quisque …
+                </p>
+                <a class="read-more" href="google.com">Read more</a>
+            </article>
+            <article class="news">
+                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
+                <h1>top news of the day</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed
+                    neque
+                    commodo consectetur. Quisque …
+                </p>
+                <p>Read more....</p>
+            </article>
+            <article class="news">
+                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
+                <h1>top news of the day</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed
+                    neque
+                    commodo consectetur. Quisque …
+                </p>
+                <p>Read more....</p>
+            </article>
+            <p class="nxt-btn">Next</p>
         </div>
     </div>
     
-    <!-- linking script file with html -->
+    <!-- linking script file with html -->  
     <script src="index.js"></script>
 </body>
 </html>
