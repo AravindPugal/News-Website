@@ -1,5 +1,4 @@
 let articles = [];
-let previousArticle = '';
 const loadingAni = `<div class="loading">
 	<span class="loader"></span>
 	<span class="loader"></span>
@@ -7,6 +6,9 @@ const loadingAni = `<div class="loading">
 	<span class="loader"></span>
 </div>`
 let pageNo = 1;
+let first = true;
+
+const scrWidth = screen.width;
 
 // function to get in specified format to us in date input
 function getToday() {
@@ -21,6 +23,8 @@ function getToday() {
 
 
 // selcting elements from DOM
+const harmBurgBtn = document.querySelector('.harm-burger')
+const formContainer = document.querySelector('#form-container');
 const newsContainer = document.querySelector('#news-container');
 const form = document.forms[0];
 const contentTypeGetter = form.querySelector('select[name="contentType"]');
@@ -41,6 +45,23 @@ dates.forEach((date) => {
 
 
 // EVENT LISTENERS
+
+
+// event listener for harm burger menu
+harmBurgBtn.addEventListener('click', () => {
+    formController();
+})
+const formController = () => {
+    const line1 = document.querySelector('.line-1');
+    const line2 = document.querySelector('.line-2');
+    const line3 = document.querySelector('.line-3');
+    formContainer.classList.toggle('show-form');
+    line1.classList.toggle('rotate-right');
+    line3.classList.toggle('rotate-left');
+    line2.classList.toggle('hide-line');
+}
+
+
 
 // control starting and ending dates from some bad inputs
 dates[0].addEventListener('change', (e) => {
@@ -70,15 +91,21 @@ contentTypeGetter.addEventListener('change', (e) => {
 //control submit event and make api request
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    fetchData()
+    if (scrWidth <= 700)
+        formController();
+    first = false;
+    fetchData();
 
 })
 // fetch and load data
 // posting input data and get array of article as a response
 const fetchData = async () => {
+    let q = contentKeyGetter.value
+    if (first) {
+        q = 'India';
+    }
     newsContainer.innerHTML = loadingAni;
     let contentType = contentTypeGetter.value
-    let q = contentKeyGetter.value
     let from = dates[0].value;
     let to = dates[1].value;
     let category = categoryGetter.value;
@@ -88,7 +115,7 @@ const fetchData = async () => {
 
 
     if (q !== '') {
-        q = "q=" + q + "&";
+        q = "q=" + q.replaceAll(' ', '') + "&";
     }
     if (from !== '') {
         from = "from=" + from + "&";
@@ -132,9 +159,25 @@ const fetchData = async () => {
 }
 
 const renderElements = (articles) => {
+    window.scroll(0, 0);
     if (articles.status !== 'error') {
         if (articles.length !== 0) {
             newsContainer.innerHTML = '';
+            const btnContainer = document.createElement('div');
+            btnContainer.classList.add('flex-100');
+            if (pageNo > 1) {
+                const prvBtn = document.createElement('p');
+                prvBtn.classList.add('prv-btn');
+                prvBtn.classList.add('action-btn');
+                prvBtn.innerText = 'Previous';
+                btnContainer.appendChild(prvBtn);
+            }
+            const nxtBtn = document.createElement('p');
+            nxtBtn.classList.add('nxt-btn');
+            nxtBtn.classList.add('action-btn');
+            nxtBtn.innerText = 'Next';
+            btnContainer.appendChild(nxtBtn);
+
             console.log(articles);
             articles.forEach((data, index) => {
                 const imageurl = data.urlToImage;
@@ -150,17 +193,13 @@ const renderElements = (articles) => {
                 article.innerHTML = content;
                 newsContainer.appendChild(article)
             });
-            const nxtBtnContainer = document.createElement('div');
-            nxtBtnContainer.classList.add('flex-100')
-            const nxtBtn = document.createElement('p');
-            nxtBtn.classList.add('nxt-btn');
-            nxtBtn.innerText = 'Next';
-            nxtBtnContainer.appendChild(nxtBtn);
-            newsContainer.appendChild(nxtBtnContainer);
+
+            // a node can't be inserted at two places directly
+            newsContainer.appendChild(btnContainer.cloneNode(true));
             nxtListener()
 
         } else {
-            newsContainer.innerHTML = `<h1>Oops there is no great match...<br/>Try someother country or keyword</h1>`;
+            newsContainer.innerHTML = `<h1>Oops there is no great match...<br/>Try someother country or keyword<br/>key word should not contain spaces</h1>`;
         }
 
     } else {
@@ -170,14 +209,20 @@ const renderElements = (articles) => {
 
 }
 const nxtListener = () => {
-    const nxtBtn = document.querySelector('.nxt-btn');
-    nxtBtn.addEventListener('click', () => {
-        pageNo = pageNo + 1;
-        fetchData();
+    const nxtBtns = document.querySelectorAll('.action-btn');
+    nxtBtns.forEach(nxtBtn => {
+        nxtBtn.addEventListener('click', (e) => {
+            const action = e.target.innerText;
+            if (action === 'Next')
+                pageNo = pageNo + 1;
+            else
+                pageNo = pageNo - 1;
+            fetchData();
 
+        })
     })
 }
-
+fetchData()
 // const addEventListenerToReadMore = () => {
 //     const readMoreBtns = document.querySelectorAll('.read-more');
 //     readMoreBtns.forEach(btn => {

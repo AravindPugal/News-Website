@@ -3,6 +3,15 @@ body {
   /* font-family: 'B612', sans-serif; */
   font-family: "BioRhyme", serif;
 }
+.harm-burger {
+  display: none;
+}
+
+.main-head {
+  width: 50%;
+  margin: auto;
+}
+
 #flex-box {
   min-height: 100vh;
   display: flex;
@@ -10,7 +19,7 @@ body {
   margin: 0%;
 }
 
-#form-container {
+.form-container {
   flex-basis: 10%;
   height: 100%;
   display: flex;
@@ -19,6 +28,7 @@ body {
   margin-right: 0;
   position: fixed;
   justify-content: center;
+  transition: transform 1s linear;
 }
 form input,
 form select,
@@ -58,6 +68,7 @@ form button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 100vh;
 }
 
 /* news */
@@ -106,10 +117,11 @@ form button:hover {
 }
 .flex-100 {
   flex-basis: 100%;
-  text-align: center;
+  margin-left: 35px;
+  margin-right: 35px;
 }
-.nxt-btn {
-  width: 10%;
+.nxt-btn,
+.prv-btn {
   text-align: center;
   font-weight: bold;
   display: inline-block;
@@ -119,11 +131,19 @@ form button:hover {
   box-shadow: 5px 5px 10px #cfcccc;
   transition: all 0.4s linear;
 }
-.nxt-btn:hover {
+.nxt-btn {
+  float: right;
+  cursor: pointer;
+}
+.prv-btn {
+  float: left;
+  cursor: pointer;
+}
+.nxt-btn:hover,
+.prv-btn:hover {
   box-shadow: none;
   color: rgb(137, 10, 10);
 }
-
 /* third party animation */
 .loading {
   position: relative;
@@ -190,4 +210,76 @@ span.loader:nth-child(4) {
   bottom: 0;
   right: 0;
   background: #fd9a3f;
+}
+
+/* design for mobile */
+
+@media screen and (max-width: 700px) {
+  #flex-box {
+    flex-direction: column;
+  }
+  .form-container {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    padding: 100px 0px 50px 8vw;
+    clip-path: circle(100px at -15% -15%);
+    background: rgb(255, 255, 255);
+    margin-left: 0;
+    overflow: scroll;
+    transition: all 0.6s ease-in;
+  }
+  .form-container label {
+    display: block;
+  }
+  .form-container button {
+    margin-bottom: 120px;
+  }
+  #news-container {
+    margin: 0;
+    flex-basis: 100%;
+  }
+  .harm-burger {
+    position: fixed;
+    z-index: 5;
+    height: 50px;
+    width: 50px;
+    display: block;
+    background-color: rgba(1, 1, 1, 0.7);
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 50%;
+  }
+  .line {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 8px;
+  }
+  .lines {
+    padding: 10px;
+    padding-top: 13px;
+  }
+  .loading {
+    top: 50vh;
+  }
+}
+
+.show-form {
+  clip-path: circle(1200px at -15% -15%);
+}
+.rotate-right {
+  position: absolute;
+  transform: rotate(45deg);
+  top: 23px;
+}
+.rotate-left {
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 23px;
+}
+.hide-line {
+  display: none;
 }

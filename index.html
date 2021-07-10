@@ -12,8 +12,15 @@
     <title>News Website</title>
 </head>
 <body>
+    <div class="harm-burger">
+        <div class="lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+    </div>
     <div id="flex-box">
-            <form id="form-container" >
+            <form id="form-container" class="form-container" >
                 <span class="form-element">
                     <label for="content-type">Select Content Type</label>
                     <select name="contentType" id="content-type" required>
@@ -96,7 +103,7 @@
                 <span class="form-element"><label for="end-data">End Date</label>
                 <input type="date" name="endDate" id="end-data" disabled></span>
                 <span class="form-element"><label for="language">Language</label>
-                <select name="language" id="language">
+                <select name="language" id="language" disabled>
                     <option value="en">English</option>
                     <option value="ar">Arabic</option>
                     <option value="de">German</option>
@@ -114,46 +121,6 @@
                 <button type="submit">FILTER</button>
             </form>
         <div id="news-container">
-            <article class="news">
-                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
-                <h1>top news of the day</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed neque
-                    commodo consectetur. Quisque …
-                </p>
-                <p>Read more....</p>
-            </article>
-            <article class="news">
-                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
-                <h1>top news of the day</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed
-                    neque
-                    commodo consectetur. Quisque …
-                </p>
-                <a class="read-more" href="google.com">Read more</a>
-            </article>
-            <article class="news">
-                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
-                <h1>top news of the day</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed
-                    neque
-                    commodo consectetur. Quisque …
-                </p>
-                <p>Read more....</p>
-            </article>
-            <article class="news">
-                <img src="https://techcrunch.com/wp-content/uploads/2020/09/GettyImages-1129362195.jpg?w=600" alt="">
-                <h1>top news of the day</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent molestie dapibus efficitur. Cras vel sem sed
-                    neque
-                    commodo consectetur. Quisque …
-                </p>
-                <p>Read more....</p>
-            </article>
-            <p class="nxt-btn">Next</p>
         </div>
     </div>
     
